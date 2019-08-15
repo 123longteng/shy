@@ -33,7 +33,6 @@
 </head>
 
 <body>
-<o:cache>
 <!-- header start -->
 <header class="header-pos">
     <div class="header-area header-middle">
@@ -455,7 +454,6 @@
     </div>
 </footer>
 <!-- footer end -->
-</o:cache>
 <script>
     function pag(page) {
         var pageNum = document.getElementById("pageNum");

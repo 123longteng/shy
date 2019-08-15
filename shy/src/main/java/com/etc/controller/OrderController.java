@@ -1,10 +1,13 @@
 package com.etc.controller;
 
 
+import com.etc.converter.CartConverter;
 import com.etc.converter.OrderConverter;
+import com.etc.entity.CartVO;
 import com.etc.entity.Order;
 import com.etc.entity.OrderMap;
 import com.etc.entity.User;
+import com.etc.service.CartService;
 import com.etc.service.OrderService;
 import com.etc.vo.OrderVO;
 import com.etc.vo.OrderVO2;
@@ -32,6 +35,9 @@ public class OrderController {
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private CartService cartService;
 
     @RequestMapping("/bgOrder")
     public String bgOrder(HttpSession session){
@@ -61,6 +67,10 @@ public class OrderController {
         List<OrderVO> list = OrderConverter.conver(orderVO2,user);
         for (OrderVO orderVO : list){
             orderService.save(orderVO);
+        }
+        List<CartVO> list2 = CartConverter.conver(orderVO2,user);
+        for (CartVO cartVO : list2){
+            cartService.deleteCart(cartVO);
         }
         String order_id = orderVO2.getoId();
         return "redirect:/pay/index/"+WIDtotal_amount+"/"+order_id;

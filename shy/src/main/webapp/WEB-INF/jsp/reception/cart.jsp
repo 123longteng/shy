@@ -33,6 +33,16 @@
     <script src="${pageContext.request.contextPath}/reScript/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
+<script>
+    window.onload=function () {
+        var arr = document.getElementsByName("choose");
+        for (var i in arr){
+            arr[i].checked = false;
+        }
+    }
+</script>
+
+
 <body>
 <!-- header start -->
 <header class="header-pos">
@@ -154,7 +164,7 @@
                                     <tbody>
                                     <tr class="order-total">
                                         <td>
-                                            <strong><span class="amount" id="money">0</span></strong>
+                                            <strong><span class="amount" id="money">0.00</span></strong>
                                         </td>
                                     </tr>
                                     </tbody>

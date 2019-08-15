@@ -129,7 +129,7 @@
                                     <td class="product-subtotal"><fmt:formatDate value="${order.ODate}" type="both" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></td>
                                     <c:choose>
                                         <c:when test="${order.OStatus==0}">
-                                            <td class="product-subtotal">未支付</td>
+                                            <td class="product-subtotal">未支付<br><a href="/pay/index/${order.FPrice*order.ONumber}/${order.OId}">去支付</a></td>
                                         </c:when>
                                         <c:when test="${order.OStatus==1}">
                                             <td class="product-subtotal">已支付</td>
